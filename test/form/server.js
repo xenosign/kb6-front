@@ -28,18 +28,18 @@ app.get('/form', (req, res) => {
   console.log('- URL:', req.url);
   console.log('- Method:', req.method);
 
-  // 2. 요청 헤더
-  console.log('\n[요청 헤더]');
-  console.log(req.headers);
+  // // 2. 요청 헤더
+  // console.log('\n[요청 헤더]');
+  // console.log(req.headers);
 
-  // 3. 쿼리 파라미터
+  // // 3. 클라이언트 정보
+  // console.log('\n[클라이언트 정보]');
+  // console.log('- IP:', req.ip);
+  // console.log('- User-Agent:', req.get('User-Agent'));
+
+  // 4. 쿼리 파라미터
   console.log('\n[쿼리 파라미터]');
   console.log(req.query);
-
-  // 4. 클라이언트 정보
-  console.log('\n[클라이언트 정보]');
-  console.log('- IP:', req.ip);
-  console.log('- User-Agent:', req.get('User-Agent'));
 
   // 응답 전송
   res.status(200).json({
@@ -58,24 +58,18 @@ app.post('/form', (req, res) => {
   console.log('- URL:', req.url);
   console.log('- Method:', req.method);
 
-  // 2. 요청 헤더
-  console.log('\n[요청 헤더]');
-  console.log(req.headers);
+  // // 2. 요청 헤더
+  // console.log('\n[요청 헤더]');
+  // console.log(req.headers);
 
-  // 3. 요청 바디 (폼 데이터)
+  // // 3. 클라이언트 정보
+  // console.log('\n[클라이언트 정보]');
+  // console.log('- IP:', req.ip);
+  // console.log('- User-Agent:', req.get('User-Agent'));
+
+  // 4. 요청 바디 (폼 데이터)
   console.log('\n[요청 바디]');
   console.log(req.body);
-
-  // 4. 클라이언트 정보
-  console.log('\n[클라이언트 정보]');
-  console.log('- IP:', req.ip);
-  console.log('- User-Agent:', req.get('User-Agent'));
-
-  // 5. 파일 업로드가 있는 경우 (multer 미들웨어가 필요함)
-  if (req.files) {
-    console.log('\n[업로드된 파일]');
-    console.log(req.files);
-  }
 
   // 응답 전송
   res.status(200).json({
