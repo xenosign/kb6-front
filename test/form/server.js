@@ -18,12 +18,6 @@ app.use((req, res, next) => {
   next();
 });
 
-// 집계를 위한 변수
-const votes = {
-  dog: 0,
-  cat: 0,
-};
-
 // GET 요청 처리
 app.get('/form', (req, res) => {
   console.log('\n===== GET 요청이 들어왔습니다 =====');
@@ -67,6 +61,13 @@ app.post('/form', (req, res) => {
 });
 
 // 투표 처리
+
+// 집계를 위한 변수
+const votes = {
+  dog: 0,
+  cat: 0,
+};
+
 app.post('/taste', (req, res) => {
   console.log('\n===== 투표 요청이 들어왔습니다 =====');
   console.log('- 시간:', new Date().toLocaleString());
