@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Overflow 비교</title>
+    <style>
+      body {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .container {
+        position: relative;
+        margin: 60px 0;
+      }
+
+      .parent {
+        width: 150px;
+        height: 150px;
+        padding: 100px;
+        background-color: orange;
+      }
+
+      .child {
+        width: 100px;
+        height: 100px;
+        background-color: skyblue;
+      }
+
+      /* 1: Visible */
+      .parent.visible {
+        overflow: visible;
+      }
+
+      /* 2: hidden */
+      .parent.hidden {
+        overflow: hidden;
+      }
+
+      /* 3: scroll */
+      .parent.scroll {
+        overflow: scroll;
+      }
+
+      /* 4: auto */
+      .parent.auto {
+        overflow: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>1. Visible</h2>
+      <div class="parent visible">
+        <div class="child">child</div>
+      </div>
+    </div>
+
+    <div class="container">
+      <h2>2. Hidden</h2>
+      <div class="parent hidden">
+        <div class="child">child</div>
+      </div>
+    </div>
+
+    <div class="container">
+      <h2>3. Scroll</h2>
+      <div class="parent scroll">
+        <div class="child">child</div>
+      </div>
+    </div>
+
+    <div class="container">
+      <h2>4. Auto</h2>
+      <div class="parent auto">
+        <div class="child">child</div>
+      </div>
+    </div>
+  </body>
+</html>

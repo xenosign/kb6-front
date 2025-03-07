@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>HTML 박스 중앙 정렬 방법</title>
+    <style>
+      body {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .container {
+        position: relative;
+        margin: 60px 0;
+      }
+
+      .parent {
+        width: 500px;
+        height: 500px;
+        background-color: orange;
+      }
+
+      .child {
+        width: 100px;
+        height: 100px;
+        background-color: skyblue;
+      }
+
+      /* 방법 1: Margin Auto + Position Absolute */
+      .parent.margin {
+        position: relative;
+      }
+
+      .child.margin {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        margin: auto;
+      }
+
+      /* 방법 1.5:  Minus Margin + Position Absolute */
+      .parent.transform {
+        position: relative;
+      }
+
+      .child.transform {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-left: -50px;
+        margin-top: -50px;
+      }
+
+      /* 방법 2: Flexbox */
+      .parent.flex {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      /* 방법 3: Grid */
+      .parent.grid {
+        display: grid;
+        place-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 방법 1: Margin Auto + Position Absolute -->
+    <div class="container">
+      <h2>1. Margin Auto + Position</h2>
+      <div class="parent margin">
+        <div class="child margin">Margin</div>
+      </div>
+    </div>
+
+    <!-- 방법 1.5: Position Absolute + Transform -->
+    <div class="container">
+      <h2>2. Position + Transform</h2>
+      <div class="parent transform">
+        <div class="child transform">Transform</div>
+      </div>
+    </div>
+
+    <!-- 방법 2: Flexbox -->
+    <div class="container">
+      <h2>3. Flexbox 사용</h2>
+      <div class="parent flex">
+        <div class="child flex">Flexbox</div>
+      </div>
+    </div>
+
+    <!-- 방법 3: Grid -->
+    <div class="container">
+      <h2>4. Grid 사용</h2>
+      <div class="parent grid">
+        <div class="child grid">Grid</div>
+      </div>
+    </div>
+  </body>
+</html>
