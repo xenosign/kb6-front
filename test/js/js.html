@@ -26,6 +26,72 @@
       for (let i = 0; i < nameArr.length; i++) {
         console.log(`${i + 1} 번째 이름은 ${nameArr[i]} 입니다`);
       }
+
+      // 함수 선언문
+      function sayHello(name) {
+        console.log(`Hello, ${name}`);
+      }
+
+      // 함수 표현식
+      let sayHelloExpression = function (name) {
+        console.log(`Hello, ${name}`);
+      };
+
+      // 화살표 함수
+      let sayHelloArrow = (name) => {
+        console.log(`Hello, ${name}`);
+      };
+
+      function add(a, b) {
+        return a + b;
+      }
+
+      function toUpperCase(str) {
+        return str.toUpperCase();
+      }
+
+      function sumArray(arr) {
+        let sum = 0;
+        for (let i = 0; i < arr.length; i++) {
+          sum += arr[i];
+        }
+        return sum;
+      }
+
+      // const exArr = ['T', 'T', 'e', 't'];
+
+      // const exStr = exArr.join('');
+      // console.log('🚀 ~ exStr:', exStr);
+
+      // const person = { name: '홍길동', age: 30 };
+      // const job = { title: '개발자', company: 'ABC Inc.' };
+
+      // const profile2 = { ...person, ...job, location: '서울' };
+
+      const personalInfo = {
+        name: '이효석',
+        age: `Don't ask this :)`,
+        email: 'xenosign@naver.com',
+      };
+
+      const jobInfo = {
+        position: '코딩 강사',
+        experience: '?년',
+      };
+
+      // 전개 연산자를 사용해 객체 병합
+      const profile = { ...personalInfo, ...jobInfo, addr: '서대문구' };
+
+      // 구조 분해 할당으로 변수에 할당
+      const { name, age, email, position, experience, addr } = profile;
+
+      // 각 변수 콘솔에 출력
+      console.log('이름:', name);
+      console.log('나이:', age);
+      console.log('이메일:', email);
+      console.log('직책:', position);
+      console.log('경력:', experience);
+      console.log('지역:', addr);
     </script>
   </head>
   <body></body>

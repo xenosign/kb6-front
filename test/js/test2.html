@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <style>
+      .box {
+        width: 100px;
+        height: 100px;
+        background-color: skyblue;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">1</div>
+    <script>
+      const boxEl = document.querySelector('.box');
+
+      function alertFunc() {
+        alert('click');
+      }
+      console.log(boxEl);
+
+      boxEl.addEventListener('click', alertFunc);
+    </script>
+  </body>
+</html>
