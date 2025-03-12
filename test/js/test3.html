@@ -10,6 +10,12 @@
     <ul id="todolist"></ul>
     <script>
       const list = document.querySelector('#todolist');
+
+      function addTodo() {
+        const li = document.createElement('li');
+        li.textContent = '이 닦기';
+        list.appendChild(li);
+      }
     </script>
   </body>
 </html>

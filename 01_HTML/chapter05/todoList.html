@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" id="input" placeholder="할 일을 입력해 주세요" />
+    <button id="btn">할 일 추가</button>
+    <ul id="todolist"></ul>
+    <script>
+      const list = document.querySelector('#todolist');
+      const btn = document.getElementById('btn');
+      const input = document.getElementById('input');
+
+      btn.addEventListener('click', function () {
+        const li = document.createElement('li');
+
+        if (input.value === '') {
+          return alert('할 일을 입력해 주세요');
+        }
+
+        li.textContent = input.value;
+
+        li.addEventListener('click', function (e) {
+          e.target.remove();
+        });
+
+        input.value = '';
+
+        list.appendChild(li);
+      });
+    </script>
+  </body>
+</html>
