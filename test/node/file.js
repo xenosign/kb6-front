@@ -1,5 +1,6 @@
 const fs = require('fs');
 
+// 콜백 지옥으로 구현
 fs.readFile('./readme.txt', (err, data) => {
   if (err) {
     throw err;
