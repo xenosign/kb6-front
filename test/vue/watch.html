@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>음식 카테고리 선택</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <h1>음식 카테고리 선택 with Watch</h1>
+      <label for="category">카테고리 선택 : </label>
+      <select id="category" v-model="selectedCategory">
+        <option value="all">전체</option>
+        <option value="korean">한식</option>
+        <option value="japanese">일식</option>
+        <option value="chinese">중식</option>
+      </select>
+
+      <ul>
+        <li v-for="(food, index) in foods" :key="index">{{ food.food }}</li>
+      </ul>
+    </div>
+
+    <script>
+      const { createApp, ref } = Vue;
+
+      createApp({
+        name: 'App',
+        data() {
+          return {
+            foods: [],
+            selectedCategory: 'all',
+          };
+        },
+        created() {
+          this.fetchFoodsByCategory(this.selectedCategory);
+        },
+        watch: {
+          selectedCategory(selectedCategory) {
+            this.fetchFoodsByCategory(selectedCategory);
+          },
+        },
+        methods: {
+          async fetchFoodsByCategory(category) {
+            try {
+              const url = `http://localhost:9099/food/${category}`;
+              const response = await fetch(url);
+              this.foods = await response.json();
+            } catch (error) {
+              console.error('데이터를 가져오는 중 오류가 발생했습니다:', error);
+            }
+          },
+        },
+      }).mount('#app');
+    </script>
+  </body>
+</html>
