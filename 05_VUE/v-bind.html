@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <img src="imgSrc" alt="장동민 마멋" />
+      <img v-bind:src="imgSrc" alt="장동민 마멋" />
+    </div>
+    <script>
+      const { createApp, ref } = Vue;
+
+      createApp({
+        name: 'App',
+        data() {
+          return {
+            imgSrc:
+              'https://photo.coolenjoy.co.kr/data/editor/2008/20200813130955_aiqgbsrk.gif',
+          };
+        },
+      }).mount('#app');
+    </script>
+  </body>
+</html>

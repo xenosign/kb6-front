@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1 class="header">Hello, Protocol</h1>
+    <button onclick="fetchData()">백엔드 통신 경험하기</button>
+    <script>
+      import axios from 'axios';
+
+      const headerEl = document.querySelector('.header');
+      const endPoint =
+        'https://port-0-tetz-night-back-m5yo5gmx92cc34bc.sel4.cloudtype.app/test';
+
+      async function fetchData() {
+        try {
+          const response = await axios.get(endPoint);
+          console.log('🚀 ~ fetchData ~ response:', response);
+
+          headerEl.textContent = response.data.message;
+        } catch (error) {
+          console.log(error);
+        }
+      }
+
+      // async function fetchData() {
+      //   try {
+      //     // 에러가 예상되는 코드 -> 통신을 쓸 예정 (async/awaiyt)
+      //     const response = await fetch(endPoint);
+      //     const data = await response.json();
+      //     console.log('🚀 ~ fetchData ~ data:', data);
+
+      //     headerEl.textContent = data.message;
+      //   } catch (error) {
+      //     console.log(error);
+      //   }
+      // }
+    </script>
+  </body>
+</html>
