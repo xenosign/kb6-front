@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tailwind CSS 헤더 메뉴</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-gray-100 font-sans">
+    <!-- 헤더 메뉴 -->
+    <header class="bg-white shadow-md">
+      <div class="container mx-auto px-4">
+        <div class="flex justify-between items-center py-4">
+          <!-- 로고 -->
+          <div class="flex items-center space-x-2">
+            <span class="material-icons text-indigo-600 text-3xl"
+              >rocket_launch</span
+            >
+            <span class="font-bold text-xl text-gray-800">브랜드명</span>
+          </div>
+
+          <!-- 데스크톱 메뉴 -->
+          <nav class="hidden md:flex space-x-10">
+            <a
+              href="#"
+              class="text-gray-800 font-semibold hover:text-indigo-600 transition-colors duration-300"
+              >홈</a
+            >
+            <a
+              href="#"
+              class="text-gray-800 font-semibold hover:text-indigo-600 transition-colors duration-300"
+              >서비스</a
+            >
+            <a
+              href="#"
+              class="text-gray-800 font-semibold hover:text-indigo-600 transition-colors duration-300"
+              >제품</a
+            >
+            <a
+              href="#"
+              class="text-gray-800 font-semibold hover:text-indigo-600 transition-colors duration-300"
+              >블로그</a
+            >
+            <a
+              href="#"
+              class="text-gray-800 font-semibold hover:text-indigo-600 transition-colors duration-300"
+              >고객지원</a
+            >
+          </nav>
+
+          <!-- 모바일 메뉴 버튼 (구글 아이콘 사용) -->
+          <div class="md:hidden">
+            <button
+              id="menu-toggle"
+              class="text-gray-600 hover:text-gray-800 focus:outline-none"
+            >
+              <span class="material-icons">menu</span>
+            </button>
+          </div>
+
+          <!-- 로그인/회원가입 버튼 -->
+          <div class="hidden md:flex items-center space-x-4">
+            <a
+              href="#"
+              class="text-gray-800 font-semibold hover:text-indigo-600 transition-colors duration-300 flex items-center"
+              ><span class="material-icons text-sm mr-1">login</span>로그인</a
+            >
+            <a
+              href="#"
+              class="bg-indigo-600 font-semibold text-white px-4 py-2 rounded-md hover:bg-indigo-700 transition-colors duration-300 flex items-center"
+              ><span class="material-icons text-sm mr-1">person_add</span
+              >회원가입</a
+            >
+          </div>
+        </div>
+
+        <!-- 모바일 메뉴 (기본적으로 숨겨져 있음) -->
+        <div id="mobile-menu" class="md:hidden hidden py-4">
+          <a
+            href="#"
+            class="block py-2 text-gray-800 font-semibold hover:text-indigo-600 flex items-center"
+            ><span class="material-icons text-sm mr-2">home</span>홈</a
+          >
+          <a
+            href="#"
+            class="block py-2 text-gray-800 font-semibold hover:text-indigo-600 flex items-center"
+            ><span class="material-icons text-sm mr-2">assignment</span
+            >서비스</a
+          >
+          <a
+            href="#"
+            class="block py-2 text-gray-800 font-semibold hover:text-indigo-600 flex items-center"
+            ><span class="material-icons text-sm mr-2">shopping_bag</span
+            >제품</a
+          >
+          <a
+            href="#"
+            class="block py-2 text-gray-800 font-semibold hover:text-indigo-600 flex items-center"
+            ><span class="material-icons text-sm mr-2">article</span>블로그</a
+          >
+          <a
+            href="#"
+            class="block py-2 text-gray-800 font-semibold hover:text-indigo-600 flex items-center"
+            ><span class="material-icons text-sm mr-2">support_agent</span
+            >고객지원</a
+          >
+          <div
+            class="pt-4 mt-2 border-t border-gray-200 flex flex-col space-y-3"
+          >
+            <a
+              href="#"
+              class="text-gray-800 font-semibold hover:text-indigo-600 flex items-center"
+            >
+              <span class="material-icons text-sm mr-2">login</span>로그인
+            </a>
+            <a
+              href="#"
+              class="bg-indigo-600 text-white px-4 py-2 rounded-md font-semibold hover:bg-indigo-700 text-center flex items-center justify-center"
+              ><span class="material-icons text-sm mr-2">person_add</span
+              >회원가입</a
+            >
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- 페이지 콘텐츠 -->
+    <main class="container mx-auto px-4 py-8">
+      <h1 class="text-3xl font-bold text-gray-800 mb-6">
+        Tailwind CSS로 만든 헤더 메뉴
+      </h1>
+    </main>
+
+    <script>
+      // 모바일 메뉴 토글
+      const menuToggle = document.getElementById('menu-toggle');
+      const mobileMenu = document.getElementById('mobile-menu');
+
+      menuToggle.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+    </script>
+  </body>
+</html>
