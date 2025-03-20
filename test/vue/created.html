@@ -9,6 +9,7 @@
   <body>
     <div id="app">
       <h1>Tetz's favorite food list</h1>
+      <button @click="fetchFoods">데이터 받기</button>
       <ul>
         <li v-for="(food, index) in foods" :key="index">{{ food.food }}</li>
       </ul>
@@ -16,7 +17,6 @@
 
     <script>
       const { createApp, ref } = Vue;
-
       createApp({
         name: 'App',
         data() {
@@ -24,14 +24,16 @@
             foods: [],
           };
         },
-        created() {
-          this.fetchFoods();
+        unmounted() {
+          this.sendData();
         },
         methods: {
-          async fetchFoods() {
+          async sendData() {
             try {
-              const response = await fetch('http://localhost:9099/food/all');
-              this.foods = await response.json();
+              const response = await fetch(
+                'https://port-0-tetz-night-back-m5yo5gmx92cc34bc.sel4.cloudtype.app/form?unmounted=unmounted'
+              );
+              console.log('data 전송 완료');
             } catch (error) {
               console.error('데이터를 가져오는 중 오류가 발생했습니다:', error);
             }

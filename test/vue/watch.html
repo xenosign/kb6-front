@@ -36,20 +36,20 @@
         created() {
           this.fetchFoodsByCategory(this.selectedCategory);
         },
-        watch: {
-          selectedCategory(selectedCategory) {
-            this.fetchFoodsByCategory(selectedCategory);
-          },
-        },
         methods: {
           async fetchFoodsByCategory(category) {
             try {
-              const url = `http://localhost:9099/food/${category}`;
+              const url = `https://port-0-tetz-night-back-m5yo5gmx92cc34bc.sel4.cloudtype.app/food/${category}`;
               const response = await fetch(url);
               this.foods = await response.json();
             } catch (error) {
               console.error('데이터를 가져오는 중 오류가 발생했습니다:', error);
             }
+          },
+        },
+        watch: {
+          selectedCategory(changeCategory) {
+            this.fetchFoodsByCategory(changeCategory);
           },
         },
       }).mount('#app');
