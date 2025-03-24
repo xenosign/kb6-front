@@ -6,14 +6,6 @@
     <title>Document</title>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <style>
-      .loading-bg {
-        background-color: skyblue;
-      }
-
-      .success-bg {
-        background-color: orange;
-      }
-
       .spinner {
         width: 40px;
         height: 40px;
@@ -32,6 +24,28 @@
           transform: rotate(360deg);
         }
       }
+
+      .loading-bg {
+        background: linear-gradient(-90deg, #3498db, #9b59b6, #2ecc71, #f1c40f);
+        background-size: 400% 400%;
+        animation: gradient-wave 5s ease infinite;
+      }
+
+      @keyframes gradient-wave {
+        0% {
+          background-position: 100% 50%;
+        }
+        50% {
+          background-position: 0% 50%;
+        }
+        100% {
+          background-position: 100% 50%;
+        }
+      }
+
+      .success-bg {
+        background-color: orange;
+      }
     </style>
   </head>
   <body>
@@ -46,22 +60,16 @@
           <option value="chinese">중식</option>
         </select>
 
-        <!-- 수동으로 인라인 스타일 바인딩 사용 -->
-        <div
-          :style="{ backgroundColor: isLoading ? 'skyblue' : 'orange' }"
-          style="padding: 20px; margin-top: 10px; border-radius: 5px"
-        >
-          <div class="loading-container" v-if="isLoading">
-            <div class="spinner"></div>
-            <p>데이터 로딩 중...</p>
-          </div>
-
-          <ul v-else>
-            <li v-for="(food, index) in filteredFoods" :key="index">
-              {{ food.food }}
-            </li>
-          </ul>
+        <div class="loading-container" v-if="isLoading">
+          <div class="spinner"></div>
+          <p>데이터 로딩 중...</p>
         </div>
+
+        <ul v-else>
+          <li v-for="(food, index) in filteredFoods" :key="index">
+            {{ food.food }}
+          </li>
+        </ul>
       </div>
     </div>
 

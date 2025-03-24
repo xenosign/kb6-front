@@ -20,11 +20,11 @@
       }
     </style>
   </head>
-  <body>
+  <body class="bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-800">
     <div id="app">
       <div class="fixed top-6 right-6 z-50">
         <button
-          @click="switchBackground"
+          @click="switchTheme"
           class="p-3 rounded-full bg-white bg-opacity-20 backdrop-blur-lg shadow-lg hover:bg-opacity-40 transition-all duration-300 text-white"
         >
           <span class="material-icons">palette</span>
@@ -44,13 +44,15 @@
           <div class="flex justify-center gap-6">
             <button
               @click="countUp"
-              class="px-8 py-3 text-white font-medium rounded-xl transition-all duration-300 shadow-lg transform bg-gradient-to-r from-blue-500 to-indigo-600 hover:-translate-y-1 hover:from-blue-600 hover:to-indigo-700 focus:ring-blue-400"
+              :class="buttonUpClass"
+              class="px-8 py-3 text-white font-medium rounded-xl transition-all duration-300 shadow-lg transform hover:-translate-y-1"
             >
               UP
             </button>
             <button
               @click="countDown"
-              class="px-8 py-3 text-white font-medium rounded-xl transition-all duration-300 shadow-lg transform bg-gradient-to-r from-pink-500 to-red-600 hover:-translate-y-1 hover:from-pink-600 hover:to-red-700 focus:ring-pink-400"
+              :class="buttonDownClass"
+              class="px-8 py-3 text-white font-medium rounded-xl transition-all duration-300 shadow-lg transform hover:-translate-y-1"
             >
               DOWN
             </button>
@@ -66,18 +68,31 @@
         data() {
           return {
             count: 0,
-            bgIndex: 0,
-            backgrounds: [
-              'bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-800',
-              'bg-gradient-to-br from-green-900 via-emerald-800 to-teal-700',
-              'bg-gradient-to-br from-blue-900 via-cyan-800 to-sky-700',
-              'bg-gradient-to-br from-gray-900 via-gray-800 to-gray-700',
+            themeIndex: 0,
+            themes: [
+              // 테마 1: 인디고-퍼플
+              {
+                buttonUp:
+                  'bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700 focus:ring-blue-400',
+                buttonDown:
+                  'bg-gradient-to-r from-pink-500 to-red-600 hover:from-pink-600 hover:to-red-700 focus:ring-pink-400',
+              },
+              // 테마 2: 그린-에메랄드
+              {
+                buttonUp:
+                  'bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 focus:ring-green-400',
+                buttonDown:
+                  'bg-gradient-to-r from-orange-500 to-amber-600 hover:from-orange-600 hover:to-amber-700 focus:ring-orange-400',
+              },
             ],
           };
         },
         computed: {
-          currentBackground() {
-            return this.backgrounds[this.bgIndex];
+          buttonUpClass() {
+            return this.themes[this.themeIndex].buttonUp;
+          },
+          buttonDownClass() {
+            return this.themes[this.themeIndex].buttonDown;
           },
         },
         methods: {
@@ -87,13 +102,9 @@
           countDown() {
             this.count--;
           },
-          switchBackground() {
-            this.bgIndex = (this.bgIndex + 1) % this.backgrounds.length;
-            document.body.className = this.currentBackground;
+          switchTheme() {
+            this.themeIndex = (this.themeIndex + 1) % this.themes.length;
           },
-        },
-        mounted() {
-          document.body.className = this.backgrounds[0];
         },
       }).mount('#app');
     </script>
