@@ -32,6 +32,8 @@ export default {
   },
   methods: {
     addTodo(newTodo) {
+      if (newTodo === '') return;
+
       this.todoList = [
         ...this.todoList,
         { id: new Date(), todo: newTodo, completed: false },

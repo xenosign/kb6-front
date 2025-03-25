@@ -1,6 +1,6 @@
 <template lang="">
   <input type="text" v-model="newTodo" />
-  <button @click="addTodo(newTodo)">추가</button>
+  <button @click="handleAddTodo()">추가</button>
 </template>
 <script>
 export default {
@@ -11,6 +11,12 @@ export default {
     };
   },
   props: ['addTodo'],
+  methods: {
+    handleAddTodo() {
+      this.addTodo(this.newTodo);
+      this.newTodo = '';
+    },
+  },
 };
 </script>
 <style lang=""></style>
