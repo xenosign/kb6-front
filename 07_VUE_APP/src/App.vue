@@ -1,33 +1,25 @@
 <script setup>
-import SendNameComponent from './components/SendNameComponent.vue';
-import ColorEmit from './components/ColorEmit.vue';
+import SlotParent from './components/SlotParent.vue';
+import NamedSlotParent from './components/NamedSlotParent.vue';
+import FancyPhotoBoxParent from './components/FancyPhotoBoxParent.vue';
+import ScopedSlotParent from './components/ScopedSlotParent.vue';
+import ModalParent from './components/ModalParent.vue';
+import TeleportDemo from './components/TeleportDemo.vue';
+import CustomInputParent from './components/CustomInputParent.vue';
+import ProvideComponent from './components/ProvideComponent.vue';
 </script>
 
 <template>
-  <div :style="{ backgroundColor: color }">
-    <h1>너의 이름은 {{ name }}</h1>
-    <SendNameComponent v-on:nameChange="nameChangeHandler" />
-    <ColorEmit v-on:colorChange="colorChangeHandler" />
-  </div>
+  <ProvideComponent />
 </template>
 
 <script>
 export default {
   name: 'App',
   data() {
-    return {
-      name: '',
-      color: '',
-    };
+    return {};
   },
-  methods: {
-    nameChangeHandler(e) {
-      this.name = e.name;
-    },
-    colorChangeHandler(e) {
-      this.color = e.color;
-    },
-  },
+  methods: {},
 };
 </script>
 
