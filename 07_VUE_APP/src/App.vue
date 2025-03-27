@@ -7,10 +7,15 @@ import ModalParent from './components/ModalParent.vue';
 import TeleportDemo from './components/TeleportDemo.vue';
 import CustomInputParent from './components/CustomInputParent.vue';
 import ProvideComponent from './components/ProvideComponent.vue';
+import RefReactive from './components/composition-api/RefReactive.vue';
+import Counter from './components/composition-api/Counter.vue';
+import PropsParent from './components/composition-api/PropsParent.vue';
+import EmitParent from './components/composition-api/EmitParent.vue';
+import QuizParent from './components/composition-api/QuizParent.vue';
 </script>
 
 <template>
-  <ProvideComponent />
+  <QuizParent />
 </template>
 
 <script>
