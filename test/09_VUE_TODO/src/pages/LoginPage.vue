@@ -24,11 +24,9 @@ const userPassword = ref('');
 async function login() {
   try {
     const loginUrl = BASE_URL + '/users';
+
     const loginRes = await axios.get(loginUrl);
-
     const userArr = loginRes.data;
-
-    console.log('백엔드 유저 데이터 : ', userArr);
 
     const findUser = userArr.find(function (item, index) {
       return item.id === userId.value;
