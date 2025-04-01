@@ -6,6 +6,8 @@ import { RouterLink, RouterView } from 'vue-router';
   <nav>
     <RouterLink to="/">HOME</RouterLink>
     /
+    <RouterLink to="/cors">CORS</RouterLink>
+    /
     <RouterLink to="/login">LOGIN</RouterLink>
     /
     <RouterLink to="/todo">TODO</RouterLink>

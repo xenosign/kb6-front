@@ -14,7 +14,8 @@ import axios from 'axios';
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 
-const BASE_URL = '/api';
+// const BASE_URL = '/api';
+const BASE_URL = 'http://localhost:3000';
 
 const router = useRouter();
 

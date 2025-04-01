@@ -10,6 +10,11 @@ const router = createRouter({
       component: HomePage,
     },
     {
+      path: '/cors',
+      name: 'cors',
+      component: () => import('../pages/CorsPage.vue'),
+    },
+    {
       path: '/login',
       name: 'login',
       component: () => import('../pages/LoginPage.vue'),
