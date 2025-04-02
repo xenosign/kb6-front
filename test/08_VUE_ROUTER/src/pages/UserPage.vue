@@ -1,8 +1,5 @@
 <template>
   <div>
-    <button @click="router.push('/user/1')">USER1</button>
-  </div>
-  <div>
     <div v-if="user">
       <h1>{{ user.name }}의 프로필</h1>
       <div>

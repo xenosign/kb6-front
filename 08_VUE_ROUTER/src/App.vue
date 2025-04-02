@@ -14,6 +14,10 @@ const router = useRouter();
       <RouterLink to="/dynamic/happy">Happy</RouterLink>
       /
       <RouterLink to="/dynamic/exciting">Exciting</RouterLink>
+      /
+      <RouterLink to="/cors">Cors</RouterLink>
+      /
+      <RouterLink to="/ex-cors">EX-Cors</RouterLink>
     </nav>
     <div>
       <button v-on:click="router.push('/')">Home</button>
