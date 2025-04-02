@@ -2,20 +2,30 @@
   <main>
     <h1>TODO PAGE</h1>
     <h2 v-if="isFetching">데이터 로딩 중</h2>
-    <ul v-else>
-      <li v-for="(item, idx) in todoArr">{{ item.todo }} / {{ item.desc }}</li>
-    </ul>
     <h2 v-if="isError">데이터 통신 중 에러 발생</h2>
+    <div v-else>
+      <ul>
+        <li v-for="(item, idx) in todoArr">
+          {{ item.id }} /
+          <RouterLink :to="`/todo/detail/${item.id}`">{{
+            item.todo
+          }}</RouterLink>
+          / {{ item.done }}
+        </li>
+      </ul>
+      <button v-on:click="goToWritePage">todo 작성</button>
+    </div>
   </main>
 </template>
 
 <script setup>
 import axios from 'axios';
 import { ref } from 'vue';
+import { useRouter } from 'vue-router';
+
+const router = useRouter();
 
 const BASE_URL = '/api';
-// const BASE_URL =
-//   'https://port-0-tetz-night-back-m5yo5gmx92cc34bc.sel4.cloudtype.app';
 
 const todoArr = ref([]);
 let isFetching = ref(true);
@@ -28,7 +38,7 @@ async function fetchTodo() {
     const todoRes = await axios.get(todoUrl);
 
     todoArr.value = todoRes.data;
-    console.log('백엔드 TODO 데이터 : ', todoArr.value);
+    console.log('백엔드 TODO 데이터 목록 : ', todoArr.value);
 
     isFetching.value = false;
   } catch (e) {
@@ -37,6 +47,10 @@ async function fetchTodo() {
     isFetching.value = false;
     console.log(e);
   }
+}
+
+async function goToWritePage() {
+  router.push({ name: 'todo/write' });
 }
 
 fetchTodo();

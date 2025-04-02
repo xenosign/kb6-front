@@ -22,8 +22,28 @@ const router = createRouter({
     {
       path: '/todo',
       name: 'todo',
-      component: () => import('../pages/TodoPage.vue'),
+      component: () => import('../pages/todo/TodoPage.vue'),
       meta: { requiresAuth: true },
+    },
+    {
+      path: '/todo/detail/:id',
+      name: 'todo/detail',
+      component: () => import('@/components/todo/TodoDetail.vue'),
+      meta: { requiresAuth: true },
+      props: true,
+    },
+    {
+      path: '/todo/write',
+      name: 'todo/write',
+      component: () => import('@/components/todo/TodoWrite.vue'),
+      meta: { requiresAuth: true },
+    },
+    {
+      path: '/todo/edit/:id',
+      name: 'todo/edit',
+      component: () => import('@/components/todo/TodoEdit.vue'),
+      meta: { requiresAuth: true },
+      props: true,
     },
   ],
 });
