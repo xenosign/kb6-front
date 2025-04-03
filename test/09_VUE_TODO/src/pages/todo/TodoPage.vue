@@ -2,7 +2,7 @@
   <main>
     <h1>TODO PAGE</h1>
     <h2 v-if="isFetching">데이터 로딩 중</h2>
-    <h2 v-if="isError">데이터 통신 중 에러 발생</h2>
+    <h2 v-else-if="isError">데이터 통신 중 에러 발생</h2>
     <div v-else>
       <ul>
         <li v-for="(item, idx) in todoArr">
@@ -13,7 +13,9 @@
           / {{ item.done }}
         </li>
       </ul>
-      <button v-on:click="goToWritePage">todo 작성</button>
+      <button v-on:click="router.push({ name: 'todo/write' })">
+        todo 작성
+      </button>
     </div>
   </main>
 </template>
@@ -47,10 +49,6 @@ async function fetchTodo() {
     isFetching.value = false;
     console.log(e);
   }
-}
-
-async function goToWritePage() {
-  router.push({ name: 'todo/write' });
 }
 
 fetchTodo();

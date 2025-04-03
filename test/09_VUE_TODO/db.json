@@ -1,10 +1,10 @@
 {
   "todos": [
     {
-      "id": "1",
-      "todo": "첫 과제 제출 하기",
+      "todo": "첫 과제 제출 하기1",
       "desc": "이거 어떻게 하는거죠!?",
-      "done": false
+      "done": true,
+      "id": "1"
     },
     {
       "id": "2",
@@ -13,28 +13,16 @@
       "done": false
     },
     {
-      "id": "3",
-      "todo": "Vue 학습",
+      "todo": "부서지는 건 항상 나였다...",
       "desc": "Vue 부수기",
-      "done": false
-    },
-    {
-      "id": "5687",
-      "todo": "12",
-      "desc": "abc",
-      "done": false
-    },
-    {
-      "id": "89de",
-      "todo": "12",
-      "desc": "12",
-      "done": false
-    },
-    {
-      "todo": "ㅇㅁㅇㅁ",
-      "desc": "ㅇㅁㅇㅁ",
       "done": true,
-      "id": "1634"
+      "id": "3"
+    },
+    {
+      "todo": "1234",
+      "desc": "1234",
+      "done": true,
+      "id": "5baa"
     }
   ],
   "users": [
