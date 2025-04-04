@@ -19,16 +19,10 @@
       "done": false
     },
     {
-      "id": "4",
-      "todo": "코테 정복",
-      "desc": "취업용 코테 까지만 퐈이팅!!",
-      "done": false
-    },
-    {
-      "id": "8b45",
-      "todo": "어제 쵸비 쩔더라~",
-      "desc": "비둘기 사기단",
-      "done": false
+      "todo": "코테 정복 이미 했음",
+      "desc": "금요일은 놀아야지",
+      "done": true,
+      "id": "4"
     }
   ],
   "users": [

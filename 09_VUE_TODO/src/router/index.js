@@ -33,6 +33,18 @@ const router = createRouter({
       component: () => import('@/pages/todo/TodoWritePage.vue'),
       meta: { requiresAuth: true },
     },
+    {
+      path: '/todo/edit/:id',
+      name: 'todo/edit',
+      component: () => import('@/pages/todo/TodoEditPage.vue'),
+      meta: { requiresAuth: true },
+      props: true,
+    },
+    {
+      path: '/pinia',
+      name: 'pinia',
+      component: () => import('@/pages/pinia/PiniaPage.vue'),
+    },
   ],
 });
 
