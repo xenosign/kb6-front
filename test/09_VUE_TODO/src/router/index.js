@@ -41,9 +41,19 @@ const router = createRouter({
     {
       path: '/todo/edit/:id',
       name: 'todo/edit',
-      component: () => import('@/pages/todo/TodoEditPage.vue'),
+      component: () => import('@/pages/todo/TodoEditPiniaPage.vue'),
       meta: { requiresAuth: true },
       props: true,
+    },
+    {
+      path: '/pinia',
+      name: 'pinia',
+      component: () => import('@/pages/pinia/PiniaPage.vue'),
+    },
+    {
+      path: '/pinia-ex',
+      name: 'pinia-ex',
+      component: () => import('@/pages/pinia/PiniaExPage.vue'),
     },
   ],
 });

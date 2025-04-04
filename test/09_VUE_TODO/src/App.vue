@@ -11,6 +11,10 @@ import { RouterLink, RouterView } from 'vue-router';
     <RouterLink to="/login">LOGIN</RouterLink>
     /
     <RouterLink to="/todo">TODO</RouterLink>
+    /
+    <RouterLink to="/pinia">PINIA</RouterLink>
+    /
+    <RouterLink to="/pinia-ex">PINIA-EX</RouterLink>
   </nav>
 
   <RouterView />
